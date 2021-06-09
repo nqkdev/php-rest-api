@@ -62,31 +62,6 @@ class SignedRequest extends Base
     }
 
     /**
-     * Create a SignedRequest from the provided data.
-     *
-     * @param string|array $query The query string from the request
-     * @param string $signature The base64-encoded signature for the request
-     * @param int $requestTimestamp The UNIX timestamp for the time the request was made
-     * @param string $body The request body
-     * @return SignedRequest
-     * @throws ValidationException when a required parameter is missing.
-     */
-    public static function create($query, $signature, $requestTimestamp, $body)
-    {
-        if (is_string($query)) {
-            $queryParameters = [];
-            parse_str($query, $queryParameters);
-        } else {
-            $queryParameters = $query;
-        }
-
-        $signedRequest = new SignedRequest();
-        $signedRequest->loadFromArray(compact('body', 'queryParameters', 'requestTimestamp', 'signature'));
-
-        return $signedRequest;
-    }
-
-    /**
      * {@inheritdoc}
      * @throws ValidationException when a required parameter is missing.
      */
@@ -109,5 +84,30 @@ class SignedRequest extends Base
         }
 
         return parent::loadFromArray($object);
+    }
+
+    /**
+     * Create a SignedRequest from the provided data.
+     *
+     * @param string|array $query The query string from the request
+     * @param string $signature The base64-encoded signature for the request
+     * @param int $requestTimestamp The UNIX timestamp for the time the request was made
+     * @param string $body The request body
+     * @return SignedRequest
+     * @throws ValidationException when a required parameter is missing.
+     */
+    public static function create($query, $signature, $requestTimestamp, $body)
+    {
+        if (is_string($query)) {
+            $queryParameters = [];
+            parse_str($query, $queryParameters);
+        } else {
+            $queryParameters = $query;
+        }
+
+        $signedRequest = new SignedRequest();
+        $signedRequest->loadFromArray(compact('body', 'queryParameters', 'requestTimestamp', 'signature'));
+
+        return $signedRequest;
     }
 }
