@@ -20,8 +20,8 @@ use function time;
  */
 class RequestValidator
 {
-    const BODY_HASH_ALGO = 'sha256';
-    const HMAC_HASH_ALGO = 'sha256';
+    public const BODY_HASH_ALGO = 'sha256';
+    public const HMAC_HASH_ALGO = 'sha256';
 
     /**
      * The key with which requests will be signed by MessageBird.
