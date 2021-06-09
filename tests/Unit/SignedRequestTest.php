@@ -51,7 +51,7 @@ class SignedRequestTest extends TestCase
             'queryParameters' => $query,
             'signature' => $signature,
             'requestTimestamp' => $requestTimestamp,
-            'body' => $body
+            'body' => $body,
         ]);
 
         self::assertEquals($requestTimestamp, $request->requestTimestamp);
@@ -74,7 +74,7 @@ class SignedRequestTest extends TestCase
             'queryParameters' => $query,
             'signature' => $signature,
             'requestTimestamp' => $requestTimestamp,
-            'body' => $body
+            'body' => $body,
         ]);
     }
 
@@ -100,7 +100,7 @@ class SignedRequestTest extends TestCase
             'queryParameters' => $query,
             'signature' => $signature,
             'requestTimestamp' => $requestTimestamp,
-            'body' => $body
+            'body' => $body,
         ]);
     }
 
@@ -126,7 +126,7 @@ class SignedRequestTest extends TestCase
             'queryParameters' => $query,
             'signature' => $signature,
             'requestTimestamp' => $requestTimestamp,
-            'body' => $body
+            'body' => $body,
         ]);
     }
 
@@ -152,7 +152,7 @@ class SignedRequestTest extends TestCase
             'queryParameters' => $query,
             'signature' => $signature,
             'requestTimestamp' => $requestTimestamp,
-            'body' => $body
+            'body' => $body,
         ]);
     }
 }
