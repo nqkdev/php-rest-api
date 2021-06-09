@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 class RequestValidatorTest extends TestCase
 {
-    public function testVerify()
+    public function testVerify(): void
     {
         $query = [
             'recipient' => '31612345678',
@@ -29,7 +29,7 @@ class RequestValidatorTest extends TestCase
         self::assertTrue($validator->verify($request));
     }
 
-    public function testVerifyWithBody()
+    public function testVerifyWithBody(): void
     {
         $query = [
             'recipient' => '31612345678',
@@ -50,7 +50,7 @@ class RequestValidatorTest extends TestCase
         self::assertTrue($validator->verify($request));
     }
 
-    public function testVerificationFails()
+    public function testVerificationFails(): void
     {
         $query = [
             'recipient' => '31612345678',
@@ -71,7 +71,7 @@ class RequestValidatorTest extends TestCase
         self::assertFalse($validator->verify($request));
     }
 
-    public function testRecentRequest()
+    public function testRecentRequest(): void
     {
         $query = [];
         $signature = 'KVBdcVdz2lYMwcBLZCRITgxUfA/WkwSi+T3Wxl2HL6w=';
@@ -84,7 +84,7 @@ class RequestValidatorTest extends TestCase
         self::assertTrue($validator->isRecent($request));
     }
 
-    public function testExpiredRequest()
+    public function testExpiredRequest(): void
     {
         $query = [];
         $signature = 'KVBdcVdz2lYMwcBLZCRITgxUfA/WkwSi+T3Wxl2HL6w=';
