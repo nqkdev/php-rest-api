@@ -26,20 +26,16 @@ class EmailMessage extends Base
 
     /**
      * Get the created id
-     *
-     * @return mixed
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
 
     /**
      * Get the status
-     *
-     * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->status;
     }

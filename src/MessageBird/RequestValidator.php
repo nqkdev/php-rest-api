@@ -32,20 +32,16 @@ class RequestValidator
 
     /**
      * RequestValidator constructor.
-     *
-     * @param string $signingKey
      */
-    public function __construct($signingKey)
+    public function __construct(string $signingKey)
     {
         $this->signingKey = $signingKey;
     }
 
     /**
      * Verify that the signed request was submitted from MessageBird using the known key.
-     *
-     * @return bool
      */
-    public function verify(SignedRequest $signedRequest)
+    public function verify(SignedRequest $signedRequest): bool
     {
         $payload = $this->buildPayloadFromRequest($signedRequest);
 
@@ -78,9 +74,8 @@ class RequestValidator
      *
      * @param SignedRequest $signedRequest The signed request object.
      * @param int $offset The maximum number of seconds that is allowed to consider the request recent
-     * @return bool
      */
-    public function isRecent(SignedRequest $signedRequest, $offset = 10)
+    public function isRecent(SignedRequest $signedRequest, int $offset = 10): bool
     {
         return (time() - (int)$signedRequest->requestTimestamp) < $offset;
     }
